@@ -1,0 +1,58 @@
+[
+  {
+    "id": "overview",
+    "topic": "What are T-Levels?",
+    "keywords": ["what are t-levels", "t-level", "t levels", "what is a t-level", "technical qualification"],
+    "answer": "T-Levels are a two-year technical qualification for students aged 16 to 19. They combine classroom learning with a substantial industry placement, so students can develop practical skills and understand how their learning applies in the workplace.",
+    "source": "Ada College and government guidance"
+  },
+  {
+    "id": "a-levels",
+    "topic": "T-Levels vs A-Levels",
+    "keywords": ["a-level", "a levels", "compare", "difference", "better"],
+    "answer": "T-Levels and A-Levels are different routes. A-Levels are generally more academic and are often chosen by students planning to go to university, while T-Levels are more technical and career-focused, with work placement experience built into the qualification.",
+    "source": "Government and careers guidance"
+  },
+  {
+    "id": "who-for",
+    "topic": "Who are T-Levels for?",
+    "keywords": ["who are they for", "suitable", "good for me", "right for me", "who should do t-levels"],
+    "answer": "T-Levels are usually a strong fit for students who enjoy practical learning, want hands-on experience, and are interested in a specific technical field such as digital, construction, engineering, health, or education. They can suit students who prefer applied learning over a purely academic route.",
+    "source": "Programme guidance and student pathways"
+  },
+  {
+    "id": "industry-placement",
+    "topic": "Industry placement",
+    "keywords": ["industry placement", "placement", "work experience", "work placement", "work experience"],
+    "answer": "A key feature of T-Levels is the industry placement. Students spend time with an employer in a real working environment, so they can apply theory in practice, build confidence, and learn workplace expectations.",
+    "source": "T-Level programme design"
+  },
+  {
+    "id": "career-outcomes",
+    "topic": "Career and study outcomes",
+    "keywords": ["jobs", "career", "careers", "degree", "apprenticeship", "future", "work"],
+    "answer": "T-Levels can lead to employment, apprenticeships, higher-level technical study, or university depending on the subject and the student's next steps. They are designed to provide both practical experience and a strong foundation for progression.",
+    "source": "Career progression and qualification guidance"
+  },
+  {
+    "id": "strengths",
+    "topic": "Why choose T-Levels",
+    "keywords": ["advantages", "benefits", "why choose", "pros", "why t-levels"],
+    "answer": "T-Levels are useful for students who want a more applied route than traditional A-Levels. They offer subject-specific learning, industry experience, and a direct connection to work, which can make students more prepared for technical roles or further training.",
+    "source": "Programme benefits"
+  },
+  {
+    "id": "qualifications",
+    "topic": "Qualification level",
+    "keywords": ["qualification", "level", "equivalent", "grade", "exam"],
+    "answer": "T-Levels are Level 3 qualifications, which sit broadly in line with A-Levels in the education system. They are designed to be a valued alternative route, especially for students interested in technical and applied work.",
+    "source": "Qualification framework guidance"
+  },
+  {
+    "id": "ada-fit",
+    "topic": "Ada and T-Levels",
+    "keywords": ["ada", "ada college", "college", "manchester", "digital", "technology"],
+    "answer": "Ada College is a specialist digital and technology college, and a T-Level pathway can be especially relevant for students interested in digital careers, creative technology, software, data, and technical roles. The route can be a strong match for learners who want practical, employer-facing education in digital sectors.",
+    "source": "Ada College positioning"
+  }
+]
