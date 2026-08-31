@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 
 const quickPrompts = [
@@ -38,6 +38,14 @@ const initialMessages = [
 function App() {
   const [messages, setMessages] = useState(initialMessages)
   const [input, setInput] = useState('')
+  const chatSectionRef = useRef(null)
+
+  const scrollToChat = () => {
+    chatSectionRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -53,39 +61,48 @@ function App() {
 
     setMessages((current) => [...current, userMessage])
     setInput('')
+    window.setTimeout(scrollToChat, 50)
   }
 
   const handlePromptClick = (prompt) => {
     setInput(prompt)
+    window.setTimeout(scrollToChat, 50)
   }
 
   return (
     <div className="ada-page">
       <header className="site-header">
-        <div className="brand-lockup">
-          <img
-            className="ada-logo"
-            src="https://www.ada.ac.uk/wp-content/themes/bureau-ada-website-2025/assets/img/ada-logo.svg"
-            alt="Ada logo"
-          />
-          <div className="brand-text">
-            <span className="brand-subtitle">Ada College</span>
-            <span className="brand-title">T-Level Support</span>
+        <div className="site-header-inner">
+          <div className="brand-lockup">
+            <img
+              className="ada-logo"
+              src="https://www.ada.ac.uk/wp-content/themes/bureau-ada-website-2025/assets/img/ada-logo.svg"
+              alt="Ada logo"
+            />
+            <div className="brand-text">
+              <span className="brand-subtitle">Ada College</span>
+              <span className="brand-title">T-Level Support</span>
+            </div>
           </div>
-        </div>
 
-        <nav className="main-nav" aria-label="Main navigation">
-          <button type="button" className="nav-link active">Home</button>
-          <button type="button" className="nav-link">Students</button>
-          <button type="button" className="nav-link">Parents</button>
-          <button type="button" className="nav-link">Careers</button>
-        </nav>
+          <nav className="main-nav" aria-label="Main navigation">
+            <a href="https://www.ada.ac.uk/" className="nav-link active" target="_blank" rel="noreferrer">Home</a>
+            <a href="https://www.ada.ac.uk/sixth-form/" className="nav-link" target="_blank" rel="noreferrer">Students</a>
+            <a href="https://www.ada.ac.uk/sixth-form/learner-services/" className="nav-link" target="_blank" rel="noreferrer">Parents</a>
+            <a href="https://www.ada.ac.uk/careers/" className="nav-link" target="_blank" rel="noreferrer">Careers</a>
+          </nav>
+        </div>
       </header>
 
       <main className="page-body">
         <section className="hero-section">
           <div className="hero-copy">
             <p className="eyebrow">Student futures</p>
+            <div className="hero-badges" aria-label="Key benefits">
+              <span>Learn</span>
+              <span>Compare</span>
+              <span>Plan</span>
+            </div>
             <h1>Explore T-Levels with confidence.</h1>
             <p className="lead">
               Discover a route that combines technical learning, real industry experience,
@@ -93,18 +110,35 @@ function App() {
             </p>
 
             <div className="button-row">
-              <button type="button" className="primary-button">Ask a question</button>
-              <button type="button" className="secondary-button">Explore pathways</button>
+              <button type="button" className="primary-button" onClick={scrollToChat}>Ask a question</button>
+              <a
+                href="https://www.ada.ac.uk/sixth-form/"
+                className="secondary-button"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Explore pathways
+              </a>
             </div>
           </div>
 
           <aside className="hero-panel">
-            <div className="panel-kicker">Student guidance</div>
-            <h2>Why T-Levels?</h2>
+            <div className="panel-kicker">T-Level guidance</div>
+            <h2>Find the route that fits your future.</h2>
+            <div className="stat-row">
+              <div className="stat-item">
+                <strong>80%</strong>
+                <span>career-focused learning</span>
+              </div>
+              <div className="stat-item">
+                <strong>1</strong>
+                <span>industry placement</span>
+              </div>
+            </div>
             <ul>
-              <li>Career-focused practical learning</li>
-              <li>Employer-linked placement experience</li>
-              <li>Strong route into digital and technical careers</li>
+              <li>Practical technical learning from day one</li>
+              <li>Employer links that build real confidence</li>
+              <li>Clear progression into work or study</li>
             </ul>
           </aside>
         </section>
@@ -118,7 +152,7 @@ function App() {
           ))}
         </section>
 
-        <section className="chat-layout">
+        <section className="chat-layout" ref={chatSectionRef}>
           <aside className="guidance-panel">
             <div className="panel-header">
               <p className="eyebrow">Quick start</p>
