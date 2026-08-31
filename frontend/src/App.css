@@ -383,6 +383,70 @@
   color: #091408;
 }
 
+.triage-panel {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 18px 16px;
+}
+
+.triage-panel h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+}
+
+.triage-question-title {
+  margin: 0 0 12px;
+  color: #edf0ee;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+.triage-options {
+  display: grid;
+  gap: 10px;
+}
+
+.triage-option,
+.triage-reset {
+  border: 1px solid rgba(245, 225, 52, 0.38);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.triage-option:hover,
+.triage-reset:hover {
+  background: rgba(245, 225, 52, 0.12);
+}
+
+.triage-result {
+  padding: 12px 0 10px;
+}
+
+.triage-result strong {
+  display: block;
+  color: #f5e134;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.triage-result p {
+  margin: 0;
+  color: #edf0ee;
+  line-height: 1.6;
+}
+
+.triage-reset {
+  width: 100%;
+  margin-top: 10px;
+}
+
 .chat-panel {
   border-radius: 28px;
   overflow: hidden;
@@ -429,11 +493,13 @@
 
 .chat-messages {
   flex: 1;
+  min-height: 0;
   padding: 24px 28px 18px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   background: #fbfcfb;
+  overflow-y: auto;
 }
 
 .message {

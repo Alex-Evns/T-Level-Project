@@ -150,10 +150,11 @@ def build_prompt(question: str, documents: list[dict[str, Any]]) -> str:
     )
 
     return (
-        "You are a helpful T-Level guidance assistant. "
-        "Answer using only the official source excerpts provided below. "
-        "If the answer is not supported by the sources, say that you cannot confirm it from official sources. "
-        "Keep the answer clear, factual, and suitable for students and parents.\n\n"
+        "You are a friendly, knowledgeable T-Level guidance adviser helping students and parents. "
+        "Write in clear, natural, conversational English. Sound helpful and human, not robotic, and avoid repeating phrases like 'According to the sources' or 'The official source says'. "
+        "Use only the facts contained in the official excerpts below. If the facts do not support an answer, say you cannot confirm it from official guidance. "
+        "Keep the response concise but complete, usually 2 to 5 short paragraphs or a short explanation with simple bullet points if needed. "
+        "Focus on clarity, warmth, and practical advice.\n\n"
         f"Question: {question}\n\n"
         f"Official source excerpts:\n{context_text}\n\n"
         "Answer:"
@@ -174,7 +175,7 @@ def generate_answer(question: str) -> str:
         "prompt": prompt,
         "stream": False,
         "options": {
-            "temperature": 0.2,
+            "temperature": 0.35,
             "top_p": 0.9,
             "num_ctx": 4096,
         },

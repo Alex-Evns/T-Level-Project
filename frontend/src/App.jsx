@@ -1,10 +1,11 @@
-import { useState, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 const quickPrompts = [
   'What are T-Levels?',
   'How do they compare with A-Levels?',
   'Are they right for me?',
+  'Find my T-Level fit',
   'What jobs can T-Levels lead to?'
 ]
 
@@ -40,6 +41,7 @@ function App() {
   const [input, setInput] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const chatSectionRef = useRef(null)
+  const messagesEndRef = useRef(null)
 
   const scrollToChat = () => {
     chatSectionRef.current?.scrollIntoView({
@@ -47,6 +49,13 @@ function App() {
       block: 'start'
     })
   }
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end'
+    })
+  }, [messages])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -100,7 +109,11 @@ function App() {
   }
 
   const handlePromptClick = (prompt) => {
-    setInput(prompt)
+    const fullPrompt = prompt === 'Find my T-Level fit'
+      ? 'Please help me work out which T-Level could suit me best. Ask me a few questions about my interests, strengths, and goals, then suggest the most suitable pathway.'
+      : prompt
+
+    setInput(fullPrompt)
     window.setTimeout(scrollToChat, 50)
   }
 
@@ -209,6 +222,7 @@ function App() {
                 ))}
               </div>
             </div>
+
           </aside>
 
           <div className="chat-panel">
@@ -226,6 +240,7 @@ function App() {
                   <div className="message-bubble">{message.text}</div>
                 </div>
               ))}
+              <div ref={messagesEndRef} />
             </div>
 
             <form className="chat-form" onSubmit={handleSubmit}>
