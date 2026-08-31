@@ -20,18 +20,12 @@
   gap: 16px;
 }
 
-.brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 58px;
-  border-radius: 14px;
-  background: #f5e134;
-  color: #091408;
-  font-weight: 800;
-  font-size: 1.35rem;
-  letter-spacing: -0.06em;
+.ada-logo {
+  display: block;
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  filter: none;
 }
 
 .brand-text {

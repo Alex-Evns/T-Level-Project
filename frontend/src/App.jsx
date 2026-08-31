@@ -63,7 +63,11 @@ function App() {
     <div className="ada-page">
       <header className="site-header">
         <div className="brand-lockup">
-          <div className="brand-mark">Ada</div>
+          <img
+            className="ada-logo"
+            src="https://www.ada.ac.uk/wp-content/themes/bureau-ada-website-2025/assets/img/ada-logo.svg"
+            alt="Ada logo"
+          />
           <div className="brand-text">
             <span className="brand-subtitle">Ada College</span>
             <span className="brand-title">T-Level Support</span>
@@ -76,8 +80,6 @@ function App() {
           <button type="button" className="nav-link">Parents</button>
           <button type="button" className="nav-link">Careers</button>
         </nav>
-
-        <button type="button" className="header-cta">Book a call</button>
       </header>
 
       <main className="page-body">
@@ -121,16 +123,6 @@ function App() {
             <div className="panel-header">
               <p className="eyebrow">Quick start</p>
               <h2>Ask about T-Levels</h2>
-            </div>
-
-            <div className="facts-card">
-              <h3>Key facts</h3>
-              <ul>
-                <li>2-year technical qualification</li>
-                <li>Industry placement included</li>
-                <li>Designed for practical learners</li>
-                <li>Offers a direct route into work or study</li>
-              </ul>
             </div>
 
             <div className="prompt-panel">
