@@ -38,6 +38,7 @@ const initialMessages = [
 function App() {
   const [messages, setMessages] = useState(initialMessages)
   const [input, setInput] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const chatSectionRef = useRef(null)
 
   const scrollToChat = () => {
@@ -47,11 +48,11 @@ function App() {
     })
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const trimmed = input.trim()
 
-    if (!trimmed) return
+    if (!trimmed || isSubmitting) return
 
     const userMessage = {
       id: Date.now(),
@@ -61,7 +62,41 @@ function App() {
 
     setMessages((current) => [...current, userMessage])
     setInput('')
+    setIsSubmitting(true)
     window.setTimeout(scrollToChat, 50)
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: trimmed })
+      })
+
+      const data = await response.json()
+      const answer = data.answer || 'I could not find a clear answer from the official sources.'
+
+      setMessages((current) => [
+        ...current,
+        {
+          id: Date.now() + 1,
+          role: 'bot',
+          text: answer
+        }
+      ])
+    } catch (error) {
+      setMessages((current) => [
+        ...current,
+        {
+          id: Date.now() + 2,
+          role: 'bot',
+          text: 'I am having trouble connecting to the guidance model. Please try again in a moment.'
+        }
+      ])
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handlePromptClick = (prompt) => {
@@ -202,8 +237,11 @@ function App() {
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask a question about T-Levels..."
                 autoComplete="off"
+                disabled={isSubmitting}
               />
-              <button type="submit">Send</button>
+              <button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Send'}
+              </button>
             </form>
           </div>
         </section>
