@@ -1,0 +1,72 @@
+@import url('https://use.typekit.net/vul6avn.css');
+
+:root {
+  --ada-dark: #091408;
+  --ada-white: #ffffff;
+  --ada-light: #eaebea;
+  --ada-mid-light: #d3d4d3;
+  --ada-yellow: #f5e134;
+  --ada-red: #ec6271;
+  --ada-purple: #95609f;
+  --ada-blue: #6cb8e7;
+  --ada-green-soft: #a1c854;
+  --ada-text: #091408;
+  --ada-panel: #ffffff;
+  --ada-surface: #f7f7f7;
+
+  font-family: 'Titillium Web', 'Segoe UI', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--ada-text);
+  background: var(--ada-light);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--ada-light);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--ada-light);
+  color: var(--ada-text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+button,
+.brand-mark {
+  font-family: 'biro-fssinclair', 'Segoe UI', Arial, sans-serif;
+}
+
+h1 {
+  font-size: clamp(2rem, 2vw + 1rem, 2.75rem);
+  line-height: 1.08;
+  color: var(--ada-text);
+}
+
+h2 {
+  font-size: clamp(1.15rem, 0.8vw + 0.9rem, 1.8rem);
+  line-height: 1.15;
+  color: var(--ada-text);
+}
